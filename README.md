@@ -1,7 +1,7 @@
 # max_slack_bot_experiment
 
 A modular Slack bot that searches trusted financial news sites for stock ticker
-news. Mention a ticker in any message after `!maxbot` and the bot replies
+news. Mention a ticker in any message after `!gaston` and the bot replies
 in-thread with a terse, headline-style summary and links to the source articles.
 
 The bot uses **OpenAI's Responses API** with the built-in `web_search` tool, so
@@ -10,7 +10,7 @@ separate search API key is needed.
 
 **Example usage:**
 ```
-!maxbot AAPL is going crazy, can you check for news?
+!gaston AAPL is going crazy, can you check for news?
 ```
 
 **Example reply:**
@@ -44,8 +44,8 @@ max_slack_bot_experiment/
 │   └── openai_provider.py          # OpenAIProvider — Responses API with web_search tool
 ├── parsing/
 │   ├── base.py                     # BaseMessageParser (abstract, generic)
-│   ├── ticker_parser.py            # TickerMessageParser — extracts ticker from !maxbot message
-│   └── regex_parser.py             # RegexMessageParser — generic !maxbot parser (kept for compatibility)
+│   ├── ticker_parser.py            # TickerMessageParser — extracts ticker from !gaston message
+│   └── regex_parser.py             # RegexMessageParser — generic !gaston parser (kept for compatibility)
 └── formatting/
     ├── base.py                     # BaseFormatter (abstract)
     └── slack_formatter.py          # SlackFormatter — 📈 stock-news Slack output
@@ -68,7 +68,7 @@ without touching the rest of the code.
 ## 1 — Create and configure the Slack App
 
 1. Go to <https://api.slack.com/apps> and click **Create New App → From scratch**.
-2. Give it a name (e.g. `maxbot`) and pick your workspace.
+2. Give it a name (e.g. `gaston`) and pick your workspace.
 3. In the left sidebar open **Socket Mode** and toggle it **on**.
    - Generate an **App-Level Token** with the `connections:write` scope.
    - Copy the token (starts with `xapp-`).
@@ -80,7 +80,7 @@ without touching the rest of the code.
 5. In the left sidebar open **Event Subscriptions**, toggle **on**, then under
    *Subscribe to bot events* add `message.channels`, `message.groups`, and `message.im`.
 6. Click **Install to Workspace** and copy the **Bot User OAuth Token** (starts with `xoxb-`).
-7. Invite the bot to any channel: `/invite @maxbot`.
+7. Invite the bot to any channel: `/invite @gaston`.
 
 ---
 
@@ -110,7 +110,7 @@ Open `.env` and fill in the values:
 | `SLACK_APP_TOKEN` | App-level token from step 1.3 (`xapp-…`) |
 | `OPENAI_API_KEY` | Your OpenAI secret key |
 | `OPENAI_MODEL` | Model name (default: `gpt-4o-search-preview`) — must support the `web_search` tool |
-| `BOT_TRIGGER` | Trigger prefix (default: `!maxbot`) |
+| `BOT_TRIGGER` | Trigger prefix (default: `!gaston`) |
 
 ---
 
@@ -121,7 +121,7 @@ python bot.py
 ```
 
 You should see `⚡️ Bolt app is running!` in the terminal.
-Now post `!maxbot TSLA what is happening?` in any channel where the bot is invited.
+Now post `!gaston TSLA what is happening?` in any channel where the bot is invited.
 
 ---
 

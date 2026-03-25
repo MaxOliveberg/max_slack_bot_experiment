@@ -1,11 +1,11 @@
-"""Ticker-aware message parser for the maxbot stock-news bot."""
+"""Ticker-aware message parser for the gaston stock-news bot."""
 import os
 import re
 from dataclasses import dataclass
 
 from parsing.base import BaseMessageParser
 
-_DEFAULT_TRIGGER = "!maxbot"
+_DEFAULT_TRIGGER = "!gaston"
 
 # Common English words (all-caps) that are NOT stock tickers
 _STOP_WORDS = frozenset(
@@ -47,9 +47,9 @@ class TickerQuery:
 
 
 class TickerMessageParser(BaseMessageParser[TickerQuery]):
-    """Message parser that extracts a stock ticker from a ``!maxbot`` message.
+    """Message parser that extracts a stock ticker from a ``!gaston`` message.
 
-    Triggers on ``!maxbot <any text>``, then scans the text for the first
+    Triggers on ``!gaston <any text>``, then scans the text for the first
     1–5 uppercase letter sequence that does not look like a common English
     word.  Returns a :class:`TickerQuery` containing the identified ticker
     and the original message body, or ``None`` if no trigger / ticker is found.

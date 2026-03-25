@@ -1,4 +1,4 @@
-"""Main entrypoint for the maxbot Slack bot.
+"""Main entrypoint for the gaston Slack bot.
 
 Wires together all providers and starts the bot in Socket Mode.
 """

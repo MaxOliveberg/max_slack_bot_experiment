@@ -3,11 +3,11 @@ import re
 
 from parsing.base import BaseMessageParser
 
-_DEFAULT_TRIGGER = "!maxbot"
+_DEFAULT_TRIGGER = "!gaston"
 
 
 class RegexMessageParser(BaseMessageParser[str]):
-    """Message parser that matches ``!maxbot <query>`` (case-insensitive).
+    """Message parser that matches ``!gaston <query>`` (case-insensitive).
 
     The trigger prefix is configurable via the constructor or the
     ``BOT_TRIGGER`` environment variable.
